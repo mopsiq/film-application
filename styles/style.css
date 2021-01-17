@@ -1,0 +1,160 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+ul li {
+  margin: 0;
+  padding: 0;
+  color: #000;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.content {
+  overflow: hidden;
+}
+
+.header {
+  background-color: #755b7b;
+}
+
+.block__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  position: relative;
+}
+
+.block__item {
+  border: 1px solid #000;
+  margin: 10rem 0;
+}
+
+.block__img {
+  max-width: 100%;
+  height: auto;
+}
+
+.block__title {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  color: #180b2c;
+}
+
+.block__title--rating {
+  color: red;
+  margin-right: 0.5rem;
+}
+
+.block__text {
+  font-size: 1.5rem;
+}
+
+.block__btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 2rem 0;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.block__modal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 30%;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  background-color: #fff;
+  font-size: 1.5rem;
+  color: blue;
+}
+
+.block__modal.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.block__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.block__list--item {
+  padding: 0 0.5rem;
+}
+
+.block__places {
+  margin: 0 auto;
+}
+
+.block__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.block__cell {
+  margin: 0.5rem;
+  padding: 1rem;
+  background-color: #ccc;
+}
+
+.block__cell:hover {
+  cursor: pointer;
+  background-color: blue;
+}
+
+.wrapper {
+  position: fixed;
+  background-color: blue;
+  opacity: 0;
+  visibility: hidden;
+  width: 100%;
+  height: 100vh;
+}
+
+.wrapper.active {
+  visibility: visible;
+  opacity: 0.3;
+  z-index: 9;
+}
+/*# sourceMappingURL=style.css.map */
