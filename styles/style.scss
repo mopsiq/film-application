@@ -132,8 +132,13 @@ ul li {
     cursor: pointer;
     background-color: #fd0123;
   }
+
   &.active {
     background-color: #ccc;
+  }
+
+  &.reservation {
+    background-color: #f80223;
   }
 }
 

@@ -156,6 +156,10 @@ ul li {
   background-color: #ccc;
 }
 
+.block__cell.reservation {
+  background-color: #f80223;
+}
+
 .wrapper {
   position: fixed;
   background-color: blue;
