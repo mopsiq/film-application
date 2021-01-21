@@ -16,12 +16,13 @@ a {
   color: #000;
 }
 
-ul li {
-  margin: 0;
-  padding: 0;
-  color: #000;
-  text-decoration: none;
-  list-style-type: none;
+select {
+  border: none;
+  outline: none;
+}
+
+option {
+  outline: none;
 }
 
 
@@ -35,127 +36,34 @@ ul li {
   background-color: #755b7b;
 }
 
-.block__wrapper {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  position: relative;
-}
 .block__item {
-  border: 1px solid #000;
-  margin: 10rem 0;
-}
-
-.block__img {
-  max-width: 100%;
-  height: auto;
-}
-
-.block__title {
-  font-size: 2rem;
-  font-weight: 600;
-  text-align: center;
-  color: #180b2c;
-
-  &--rating {
-    color: red;
-    margin-right: 0.5rem;
-  }
-}
-
-.block__text {
-  font-size: 1.5rem;
-}
-
-.block__btn {
   display: flex;
   justify-content: center;
-  margin: 2rem 0;
-  text-align: center;
-  font-size: 2rem;
+
+  margin: 0.5rem 0;
 }
 
-.block__modal {
+
+.block__row {
   display: flex;
-  justify-content: center;
-  flex-direction: column;
-  
-
-  visibility: hidden;
-  opacity: 0;
-
-  padding: 2rem;
-  position: absolute;
-  top: 30%;
-  left: 0;
-  z-index: 10;
-
   width: 100%;
-  background-color: #fff;
-  font-size: 1.5rem;
-  color: blue;
-
-  &.active {
-    visibility: visible;
-    opacity: 1;
-    
-  }
-
-}
-
-
-.block__list {
-  display: flex;
-  justify-content: center;
-
-  &--item {
-    padding: 0 0.5rem;
-  }
-}
-
-.block__places {
-  display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-.block__row {
-  display: flex;
-}
-.block__cell {
-  margin: 0.5rem;
-  width: 25px;
-  height: 25px;
-  background-color: #2576ac;
-  // transition: all .2s linear;
 
-  &:hover {
-    cursor: pointer;
-    background-color: #fd0123;
-  }
+.seats {
+  width: 15px;
+  height: 15px;
+  border: 1px solid #ccc;
+  margin: 0.3rem;
 
   &.active {
     background-color: #ccc;
   }
 
-  &.reservation {
-    background-color: #f80223;
+  &:hover {
+    background-color: #0092f3;
+    cursor: pointer;
   }
-}
-
-
-
-
-.wrapper {
-  position: fixed;
-  background-color: blue;
-  opacity: 0;
-  visibility: hidden;
-  width: 100%;
-  height: 100%;
-
-  &.active {
-    visibility: visible;
-    opacity: 0.3;
-    z-index: 9;
-  }
+  
 }
