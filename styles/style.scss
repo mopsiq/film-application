@@ -65,5 +65,13 @@ option {
     background-color: #0092f3;
     cursor: pointer;
   }
+
+  &.clicked {
+    background-color: red;
+  }
+
+  &.reserved {
+    background-color: green;
+  }
   
 }

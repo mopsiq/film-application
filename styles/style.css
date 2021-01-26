@@ -70,4 +70,12 @@ option {
   background-color: #0092f3;
   cursor: pointer;
 }
+
+.seats.clicked {
+  background-color: red;
+}
+
+.seats.reserved {
+  background-color: green;
+}
 /*# sourceMappingURL=style.css.map */

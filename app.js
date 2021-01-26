@@ -1,61 +1,125 @@
 'use strict';
 
-const seatsInHall = {
+console.log(window.localStorage)
 
-  'date': {
-      1: {
+const selectInBlock = document.querySelectorAll('.block__select');
+const blockInHall = document.querySelector('.block__hall');
+const btnForBlock = document.querySelector('.block__button');
+const seats = document.querySelectorAll('.seats');
 
-      }
+let reservedForUser = [];
+let JSONInLocal;
+
+const objectInDates = {
+
+  dates: {
+    1: '1',
+    2: '2',
+    3: '3',
+    4: '4',
+    5: '5',
+    6: '6',
+    7: '7',
   },
-
-  'films': {
-    'Batman': {
-      reservedSets: [],
-      reservedSetsUser: [],
-    },
-    'Green Tree': {
-      reservedSets: [],
-      reservedSetsUser: [],
-    },
-    'Gag': {
-      reservedSets: [],
-      reservedSetsUser: [],
-    },
-    'Agent K': {
-      reservedSets: [],
-      reservedSetsUser: [],
-    },
-    'Feed': {
-      reservedSets: [],
-      reservedSetsUser: [],
-    },
-  },
-
-  'hall': {
-    1: {
-      reservedSets: [],
-      reservedSetsUser: [],
-    },
-    2: {
-      reservedSets: [],
-      reservedSetsUser: [],
-    },
-    3: {
-      reservedSets: [],
-      reservedSetsUser: [],
-    },
-  }
 
 };
 
+function generateDate(object) {
+  let newWeekDate = new Date();
+
+  let size = Object.keys(object.dates).length;
+  let month = newWeekDate.getMonth() + 1;
+  let dateInDay = newWeekDate.getDate() - 4;
+  let year = newWeekDate.getFullYear();
+
+  for(let i = 0; i <= size; i++) {
+    object.dates[i] = `${year}:0${month}:${dateInDay + i}`
+  }
+
+}
+generateDate(objectInDates)
+
+
+function checkingInReserv(seatsInBlock, localStore) {
+
+      let parseLocal = JSON.parse(localStore);
+      for(let i = 0; i < seatsInBlock.length; i++) {
+        let a = +seatsInBlock[i].getAttribute('seat-value')
+          if(parseLocal.includes(a)) {
+            seatsInBlock[i].classList.add('reserved');
+          } else {
+            seatsInBlock[i].classList.remove('reserved')
+          }
+      }
+    
+};
+
+function creatingObjectInSeats(array, mainObject) {
+  // let secondarySeats = new Object();
+  // for(let i = 0; i < array.length; i++) {
+  //   secondarySeats[i] = array[i];
+  // };
+  // window.localStorage.getItem('localReserveds');
+  // console.log(secondarySeats)
+};
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
-  
+
+  checkingInReserv(seats, window.localStorage.getItem('localReserveds'));
+
+      selectInBlock.forEach((item) => {
+
+        if(item.getAttribute('name') === 'date') {
+      
+          for(let i = 0; i < item.childElementCount; i++) {
+      
+            if(item.children[i].getAttribute('value')) {
+              item.children[i].textContent = objectInDates.dates[i - 1];
+            };
+      
+          };
+      
+        };
+      
+      });
+    
+    seats.forEach((item) => {
+
+      if(item.classList.contains('reserved')) {
+        reservedForUser.push(+item.getAttribute('seat-value'))
+      }
+
+      item.addEventListener('click', () => {
+          let currentItem = +item.getAttribute('seat-value');
+
+          if(reservedForUser.length > 8) {
+            console.log('Бронирование невозможно')
+          } else {
+            item.classList.toggle('clicked');
+
+            if(item.classList.contains('clicked')) {
+              reservedForUser.push(currentItem);
+            } else {
+              reservedForUser.splice(reservedForUser.indexOf(currentItem), 1);
+            };
+          }
+
+          console.log(reservedForUser)
+      });
+
+    });
 
 
+
+    btnForBlock.addEventListener('click', () => {
+        JSONInLocal = JSON.stringify(reservedForUser);
+        window.localStorage.setItem('localReserveds', JSONInLocal);
+      // creatingObjectInSeats(reservedForUser, objectInDates)
+    });
 
 });
-
 
 
 
