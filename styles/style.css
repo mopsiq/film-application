@@ -77,5 +77,6 @@ option {
 
 .seats.reserved {
   background-color: green;
+  cursor: auto;
 }
 /*# sourceMappingURL=style.css.map */
