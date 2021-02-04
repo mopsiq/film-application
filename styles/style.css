@@ -64,6 +64,7 @@ option {
 
 .seats.active {
   background-color: #ccc;
+  cursor: auto;
 }
 
 .seats:hover {
