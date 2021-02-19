@@ -56,6 +56,7 @@ function checkingInReserv(seatsInBlock, localStore) {
 
     for(let i = 0; i < seatsInBlock.length; i++) {
       let seatsAttribute = +seatsInBlock[i].getAttribute('seat-value')
+      seatsInBlock[i].classList.add('active');
         if(parseLocal.includes(seatsAttribute)) {
           seatsInBlock[i].classList.add('reserved');
           seatsInBlock[i].classList.remove('clicked')
@@ -127,17 +128,10 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     
       seats.forEach((item) => {
+        item.classList.add('active')
         item.addEventListener('click', () => {
             let currentItem = +item.getAttribute('seat-value');
-
-              // if(item.classList.contains('active')) {
-              //   return false
-              // }
-
-              if(reservedForUser.length >= 8) {
-                console.log('Бронирование невозможно')
-              } else {
-                item.classList.toggle('clicked');
+            item.classList.toggle('clicked');
 
               if(item.classList.contains('clicked')) {
                 reservedForUser.push(currentItem);
@@ -145,14 +139,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 reservedForUser.splice(reservedForUser.indexOf(currentItem), 1);
               };
 
-            }
-
-            console.log(reservedForUser)
+            console.log(reservedForUser);
         });
 
       });
-
-
 
       btnForBlock.addEventListener('click', () => {
           JSONInLocal = JSON.stringify(reservedForUser);
