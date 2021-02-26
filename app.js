@@ -1,5 +1,4 @@
 'use strict';
-document.querySelector('img[src="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png"]').style.display = 'none'
 
 const selectInBlock = document.querySelectorAll('.block__select');
 const blockInHall = document.querySelector('.block__hall');
