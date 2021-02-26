@@ -29,8 +29,8 @@ option {
   overflow: hidden;
 }
 
-.header {
-  background-color: #755b7b;
+.block {
+  text-align: center;
 }
 
 .block__item {
@@ -55,11 +55,48 @@ option {
           justify-content: center;
 }
 
+.block__select {
+  border: 0.5px solid #76bff0;
+  border-radius: 10px;
+  padding: 1px;
+  text-align: center;
+}
+
+.block__button {
+  border-radius: 10px;
+  outline: none;
+  border: 0.5px solid #0092f3;
+  background-color: #ebe6e6;
+  cursor: pointer;
+  padding: 0.5rem;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
+.block__button:hover {
+  background-color: #0092f3;
+  color: #fff;
+  -webkit-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
+}
+
+.block__button.hidden {
+  opacity: 0.2;
+}
+
+.block__button.hidden:hover {
+  background-color: #ebe6e6;
+  color: #000;
+  cursor: initial;
+}
+
 .seats {
   width: 15px;
   height: 15px;
   border: 1px solid #ccc;
   margin: 0.3rem;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
 }
 
 .seats.active {

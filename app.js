@@ -1,4 +1,5 @@
 'use strict';
+document.querySelector('img[src="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png"]').style.display = 'none'
 
 const selectInBlock = document.querySelectorAll('.block__select');
 const blockInHall = document.querySelector('.block__hall');
@@ -63,15 +64,12 @@ function checkingInReserv(seatsInBlock, localStore) {
         } else {
           seatsInBlock[i].classList.remove('reserved')
         }
-
-        // seatsInBlock[i].classList.add('active')
     }
   }
     
 };
 
 function creatingObjectInSeats(object, date, time) {
-    
     if(object.hasOwnProperty(date.value)) {
       object[date.value][time.value] = window.localStorage.getItem('localReserveds')
     } else {
@@ -91,13 +89,11 @@ function generateSeatsInRange(seatsBlock, object) {
       if(object?.[dateSelected.value]?.[timeSelected.value]) {
         btnForBlock.setAttribute('disabled', 'disabled')
         let JSONParse = JSON.parse(object[dateSelected.value][timeSelected.value])
-
-        if(JSONParse.includes(+item.getAttribute('seat-value'))) {
-          item.classList.add('reserved')
-        } else {
-          item.classList.remove('reserved')
-        }
-        // item.classList.add('active')
+          if(JSONParse.includes(+item.getAttribute('seat-value'))) {
+            item.classList.add('reserved')
+          } else {
+            item.classList.remove('reserved')
+          }
       } else {
         btnForBlock.removeAttribute('disabled')
       };
@@ -124,7 +120,10 @@ document.addEventListener('DOMContentLoaded', () => {
       selectInBlock.forEach((item) => {
         item.addEventListener('change', () => {
           generateSeatsInRange(seats, users)
-        });  
+        });
+        item.addEventListener('click', () => {
+          btnForBlock.classList.toggle('hidden')
+        }) 
       });
     
       seats.forEach((item) => {
@@ -143,6 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
       });
+
 
       btnForBlock.addEventListener('click', () => {
           JSONInLocal = JSON.stringify(reservedForUser);
