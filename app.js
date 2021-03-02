@@ -64,7 +64,7 @@ function checkingInReserv(seatsInBlock, localStore) {
           seatsInBlock[i].classList.remove('reserved')
         }
     }
-  }
+  };
     
 };
 
@@ -86,18 +86,22 @@ function generateSeatsInRange(seatsBlock, object) {
     item.classList.remove('clicked')
 
       if(object?.[dateSelected.value]?.[timeSelected.value]) {
-        btnForBlock.setAttribute('disabled', 'disabled')
-        let JSONParse = JSON.parse(object[dateSelected.value][timeSelected.value])
-          if(JSONParse.includes(+item.getAttribute('seat-value'))) {
-            item.classList.add('reserved')
-          } else {
-            item.classList.remove('reserved')
-          }
+        btnForBlock.classList.add('hidden');
+        btnForBlock.setAttribute('disabled', 'disabled');
+
+            let JSONParse = JSON.parse(object[dateSelected.value][timeSelected.value])
+            if(JSONParse.includes(+item.getAttribute('seat-value'))) {
+              item.classList.add('reserved')
+            } else {
+              item.classList.remove('reserved')
+            }
+
       } else {
-        btnForBlock.removeAttribute('disabled')
+        btnForBlock.removeAttribute('disabled');
       };
 
   });
+
 
 };
 
@@ -118,7 +122,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       selectInBlock.forEach((item) => {
         item.addEventListener('change', () => {
-          generateSeatsInRange(seats, users)
+          generateSeatsInRange(seats, users);
+          reservedForUser = [];
         });
         item.addEventListener('click', () => {
           btnForBlock.classList.toggle('hidden')
@@ -144,14 +149,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
       btnForBlock.addEventListener('click', () => {
+          let startDate = Date.now();
           JSONInLocal = JSON.stringify(reservedForUser);
           window.localStorage.setItem('localReserveds', JSONInLocal);
 
           checkingInReserv(seats, window.localStorage.getItem('localReserveds'));
-          creatingObjectInSeats(users, dateSelected, timeSelected)
+          
+          creatingObjectInSeats(users, dateSelected, timeSelected, startDate)
 
           window.localStorage.setItem('localObject', JSON.stringify(users, null, 2));
-          console.log(window.localStorage.getItem('localObject'))
+
+          console.log(window.localStorage.getItem('localObject')) 
+          reservedForUser = [];
       });
 
 });
