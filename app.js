@@ -149,13 +149,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
       btnForBlock.addEventListener('click', () => {
-          let startDate = Date.now();
           JSONInLocal = JSON.stringify(reservedForUser);
           window.localStorage.setItem('localReserveds', JSONInLocal);
 
           checkingInReserv(seats, window.localStorage.getItem('localReserveds'));
           
-          creatingObjectInSeats(users, dateSelected, timeSelected, startDate)
+          creatingObjectInSeats(users, dateSelected, timeSelected)
 
           window.localStorage.setItem('localObject', JSON.stringify(users, null, 2));
 
